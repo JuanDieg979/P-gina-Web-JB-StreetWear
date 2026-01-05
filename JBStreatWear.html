@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JB StreetWear - Moda Urbana Auténtica</title>
+    <!-- Fuente que coincide con el estilo del logo (bold, serif, impactante) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700,900&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================
+           ESTILOS GENERALES
+           =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #d4a574; /* Color dorado del logo */
+            background-color: #0a0a0a; /* Fondo negro profundo */
+        }
+
+        /* ===========================
+           HEADER Y NAVEGACIÓN
+           =========================== */
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #d4a574;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(212, 165, 116, 0.3);
+            border-bottom: 2px solid #d4a574;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Logo con imagen */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.5));
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #d4a574;
+            text-transform: uppercase;
+        }
+
+        /* Links de navegación */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #d4a574;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        /* Efecto hover en los links */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #d4a574;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #f4c794;
+            text-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        /* ===========================
+           HERO SECTION
+           =========================== */
+        .hero {
+            /* Fondo con overlay oscuro */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #d4a574;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto de patrón decorativo en el hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 165, 116, 0.03) 10px, rgba(212, 165, 116, 0.03) 20px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.5);
+            color: #d4a574;
+        }
+
+        .hero-content p {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            color: #c4955f;
+        }
+
+        /* Botón principal */
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+            border: 2px solid #d4a574;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 165, 116, 0.6);
+            background: linear-gradient(135deg, #f4c794 0%, #d4a574 100%);
+        }
+
+        /* ===========================
+           SECCIONES GENERALES
+           =========================== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 900;
+            color: #d4a574;
+            text-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+            position: relative;
+        }
+
+        /* Línea decorativa debajo de los títulos */
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+            margin: 1rem auto 0;
+        }
+
+        /* ===========================
+           SOBRE NOSOTROS
+           =========================== */
+        #nosotros {
+            background: #0f0f0f;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #c4955f;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Contenedor de imagen del logo */
+        .about-image {
+            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #d4a574;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+            padding: 2rem;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(212, 165, 116, 0.4));
+        }
+
+        /* ===========================
+           CATÁLOGO
+           =========================== */
+        #catalogo {
+            background: #0a0a0a;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Tarjetas de producto */
+        .product-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.4s;
+            border: 2px solid #2a2a2a;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+            border-color: #d4a574;
+        }
+
+        /* Imagen del producto */
+        .product-image {
+            height: 350px;
+            background: radial-gradient(circle, #2a2a2a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4a574;
+            font-size: 2.5rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto de brillo en hover */
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .product-card:hover .product-image::before {
+            opacity: 1;
+        }
+
+        /* Información del producto */
+        .product-info {
+            padding: 1.5rem;
+            background: #0f0f0f;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            color: #d4a574;
+        }
+
+        .product-info p {
+            color: #9a8060;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .price {
+            font-size: 1.6rem;
+            color: #d4a574;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+        }
+
+        /* ===========================
+           CONTACTO
+           =========================== */
+        #contacto {
+            background: #0f0f0f;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content > p {
+            font-size: 1.2rem;
+            color: #c4955f;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Items de contacto */
+        .contact-item {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            border: 2px solid #2a2a2a;
+            transition: all 0.3s;
+            color: #c4955f;
+        }
+
+        .contact-item:hover {
+            border-color: #d4a574;
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.2);
+            transform: translateX(5px);
+        }
+
+        .contact-item strong {
+            color: #d4a574;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* ===========================
+           FOOTER
+           =========================== */
+        footer {
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+            color: #d4a574;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-top: 2px solid #d4a574;
+            box-shadow: 0 -2px 20px rgba(212, 165, 116, 0.2);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: #c4955f;
+        }
+
+        footer p:first-child {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #d4a574;
+        }
+
+        /* ===========================
+           RESPONSIVE DESIGN
+           =========================== */
+        @media (max-width: 768px) {
+            /* Navegación móvil */
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            /* Hero móvil */
+            .hero-content h1 {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            /* Sobre nosotros móvil */
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            /* Títulos móviles */
+            h2 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            /* Catálogo móvil */
+            .catalog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===========================
+         HEADER CON NAVEGACIÓN
+         =========================== -->
+    <header>
+        <nav>
+            <!-- Logo con imagen y texto -->
+            <div class="logo">
+                <img src="https://i.imgur.com/placeholder.png" alt="JB StreetWear Logo" id="logo-img">
+                <span class="logo-text">JB StreetWear</span>
+            </div>
+            <!-- Menú de navegación -->
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===========================
+         SECCIÓN HERO (PORTADA)
+         =========================== -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>JB StreetWear</h1>
+            <p>Moda Urbana Auténtica | Estilo que Define tu Personalidad</p>
+            <a href="#catalogo" class="btn">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <!-- ===========================
+         QUIÉNES SOMOS
+         =========================== -->
+    <section id="nosotros">
+        <h2>Quiénes Somos</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>JB StreetWear nace de la pasión por la moda urbana y el deseo de ofrecer piezas únicas que reflejen la autenticidad de la cultura callejera.</p>
+                <p>Nos especializamos en playeras de alta calidad con diseños exclusivos que combinan comodidad, estilo y durabilidad. Cada prenda es cuidadosamente seleccionada para garantizar que nuestros clientes luzcan su mejor versión.</p>
+                <p>Creemos que la moda es una forma de expresión, y nuestra misión es brindarte las herramientas para que muestres al mundo quién eres realmente. Nuestro emblema, el doberman con cadena, representa fuerza, lealtad y actitud urbana.</p>
+            </div>
+            <!-- Logo de la marca -->
+            <div class="about-image">
+                <img src="https://i.imgur.com/placeholder.png" alt="JB StreetWear Logo" id="about-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CATÁLOGO DE PRODUCTOS
+         =========================== -->
+    <section id="catalogo">
+        <h2>Nuestro Catálogo</h2>
+        <div class="catalog-grid">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <div class="product-image">Playera 1</div>
+                <div class="product-info">
+                    <h3>Urban Classic Black</h3>
+                    <p>Playera negra de algodón premium con diseño minimalista</p>
+                    <div class="price">$350 MXN</div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <div class="product-image">Playera 2</div>
+                <div class="product-info">
+                    <h3>Street Vibes Gold</h3>
+                    <p>Playera negra con detalles dorados y logo JB bordado</p>
+                    <div class="price">$380 MXN</div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <div class="product-image">Playera 3</div>
+                <div class="product-info">
+                    <h3>Doberman Power</h3>
+                    <p>Playera con estampado del icónico doberman de JB</p>
+                    <div class="price">$400 MXN</div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-card">
+                <div class="product-image">Playera 4</div>
+                <div class="product-info">
+                    <h3>Chain Style Gray</h3>
+                    <p>Playera gris oscuro con diseño de cadena metálica</p>
+                    <div class="price">$380 MXN</div>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="product-card">
+                <div class="product-image">Playera 5</div>
+                <div class="product-info">
+                    <h3>Gold Edition Black</h3>
+                    <p>Playera negra edición especial con acabados dorados</p>
+                    <div class="price">$450 MXN</div>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card">
+                <div class="product-image">Playera 6</div>
+                <div class="product-info">
+                    <h3>Minimalist Dark</h3>
+                    <p>Playera oscura con logo JB discreto bordado</p>
+                    <div class="price">$350 MXN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         CONTACTO
+         =========================== -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <div class="contact-content">
+            <p>¿Tienes alguna pregunta o quieres hacer un pedido? ¡Contáctanos!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>WhatsApp:</strong> +52 55 1234 5678
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong> contacto@jbstreetwear.com
+                </div>
+                <div class="contact-item">
+                    <strong>Instagram:</strong> @jbstreetwear
+                </div>
+                <div class="contact-item">
+                    <strong>Ubicación:</strong> Manzanillo, Colima, México
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         FOOTER
+         =========================== -->
+    <footer>
+        <p>&copy; 2026 JB StreetWear. Todos los derechos reservados.</p>
+        <p>Hecho con pasión por la moda urbana</p>
+    </footer>
+
+    <!-- ===========================
+         JAVASCRIPT
+         =========================== -->
+    <script>
+        /**
+         * CARGA DE LA IMAGEN DEL LOGO
+         * Convierte la imagen subida a base64 y la coloca en los elementos correspondientes
+         */
+        function loadLogoImage() {
+            // Aquí debes reemplazar esta URL con la ruta real de tu imagen
+            // Puedes usar una URL de internet o convertir tu imagen a base64
+            const logoUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
+            
+            // Intenta cargar la imagen del logo
+            document.getElementById('logo-img').src = logoUrl;
+            document.getElementById('about-logo').src = logoUrl;
+            
+            // Si tienes la imagen descargada, simplemente cambia el src:
+            // document.getElementById('logo-img').src = 'ruta/a/tu/logo.png';
+            // document.getElementById('about-logo').src = 'ruta/a/tu/logo.png';
+        }
+
+        /**
+         * SMOOTH SCROLL
+         * Desplazamiento suave al hacer clic en los enlaces de navegación
+         */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        /**
+         * EFECTO DE APARICIÓN AL HACER SCROLL
+         * Las tarjetas de producto aparecen con animación al hacer scroll
+         */
+        function handleScrollAnimation() {
+            const cards = document.querySelectorAll('.product-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(30px)';
+                        
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.6s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        /**
+         * INICIALIZACIÓN
+         * Se ejecuta cuando la página termina de cargar
+         */
+        window.addEventListener('DOMContentLoaded', () => {
+            loadLogoImage();
+            handleScrollAnimation();
+        });
+
+        /**
+         * PARA USAR TU IMAGEN:
+         * 
+         * Opción 1 - Imagen en la misma carpeta:
+         * 1. Guarda tu imagen del logo como "logo.png" en la misma carpeta que este HTML
+         * 2. Cambia la línea del logoUrl por:
+         *    const logoUrl = 'logo.png';
+         * 
+         * Opción 2 - Imagen en una subcarpeta:
+         * 1. Crea una carpeta llamada "images" 
+         * 2. Guarda tu logo ahí
+         * 3. Cambia la línea del logoUrl por:
+         *    const logoUrl = 'images/logo.png';
+         * 
+         * Opción 3 - Imagen desde URL de internet:
+         * 1. Sube tu imagen a un servicio como Imgur
+         * 2. Cambia la línea del logoUrl por la URL de tu imagen:
+         *    const logoUrl = 'https://i.imgur.com/tu-imagen.png';
+         */
+    </script>
+</body>
+</html>
