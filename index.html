@@ -662,8 +662,7 @@
                     
                     <div class="carousel-track">
                         <img src="Playera2.png" alt="Off-White Simpsons - imagen 1">
-                        <img src="Playera2-2.png" alt="Off-White Simpsons - imagen 2">
-                        <img src="Playera2-3.png" alt="Off-White Simpsons - imagen 3">
+                        <img src="Playera2_2.png" alt="Off-White Simpsons - imagen 2">
                     </div>
                     
                     <button class="carousel-btn next" aria-label="Imagen siguiente">›</button>
@@ -884,10 +883,10 @@
                 });
 
                 // Auto-play (opcional - descomenta si quieres que cambie automáticamente)
-                // setInterval(() => {
-                //     currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
-                //     updateCarousel();
-                // }, 3000); // Cambia cada 3 segundos
+                setInterval(() => {
+                    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                    updateCarousel();
+                }, 3000); // Cambia cada 3 segundos
             });
         }
     </script>
