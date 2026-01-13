@@ -316,6 +316,85 @@
             display: block;
         }
 
+        /* ===========================
+           CARRUSEL DE IMÁGENES
+           =========================== */
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel-track img {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 165, 116, 0.8);
+            color: #0a0a0a;
+            border: none;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(244, 199, 148, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* Indicadores del carrusel */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(212, 165, 116, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background: rgba(212, 165, 116, 1);
+            width: 30px;
+            border-radius: 5px;
+        }
+
         /* Si la imagen está directamente en product-card (sin product-image) */
         .product-card > img {
             width: 100%;
@@ -576,10 +655,24 @@
                 </div>
             </div>
 
-            <!-- Producto 2 -->
+            <!-- Producto 2 - CON CARRUSEL -->
             <div class="product-card">
-                <div class="product-image">
-                    <img src="Playera2.png" alt="Off-White Simpsons">
+                <div class="product-image carousel" data-index="0">
+                    <button class="carousel-btn prev" aria-label="Imagen anterior">‹</button>
+                    
+                    <div class="carousel-track">
+                        <img src="Playera2.png" alt="Off-White Simpsons - imagen 1">
+                        <img src="Playera2-2.png" alt="Off-White Simpsons - imagen 2">
+                        <img src="Playera2-3.png" alt="Off-White Simpsons - imagen 3">
+                    </div>
+                    
+                    <button class="carousel-btn next" aria-label="Imagen siguiente">›</button>
+                    
+                    <div class="carousel-indicators">
+                        <span class="carousel-indicator active"></span>
+                        <span class="carousel-indicator"></span>
+                        <span class="carousel-indicator"></span>
+                    </div>
                 </div>
                 <div class="product-info">
                     <h3>Off-White Simpsons</h3>
@@ -733,7 +826,70 @@
          */
         window.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
+            initCarousels();
         });
+
+        /**
+         * CARRUSEL DE IMÁGENES
+         * Función para inicializar todos los carruseles
+         */
+        function initCarousels() {
+            const carousels = document.querySelectorAll('.carousel');
+            
+            carousels.forEach(carousel => {
+                const track = carousel.querySelector('.carousel-track');
+                const images = track.querySelectorAll('img');
+                const prevBtn = carousel.querySelector('.prev');
+                const nextBtn = carousel.querySelector('.next');
+                const indicators = carousel.querySelectorAll('.carousel-indicator');
+                let currentIndex = 0;
+
+                function updateCarousel() {
+                    // Mover las imágenes
+                    const offset = -currentIndex * 100;
+                    images.forEach(img => {
+                        img.style.transform = `translateX(${offset}%)`;
+                    });
+
+                    // Actualizar indicadores
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                }
+
+                // Botón anterior
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+                    updateCarousel();
+                });
+
+                // Botón siguiente
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                    updateCarousel();
+                });
+
+                // Click en indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                });
+
+                // Auto-play (opcional - descomenta si quieres que cambie automáticamente)
+                // setInterval(() => {
+                //     currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                //     updateCarousel();
+                // }, 3000); // Cambia cada 3 segundos
+            });
+        }
     </script>
 </body>
 </html>
