@@ -480,12 +480,41 @@
             font-weight: bold;
             border: 1px solid #d4a574;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .size-badge:hover {
             background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
             color: #0a0a0a;
             transform: scale(1.05);
+        }
+
+        /* Talla agotada con diagonal */
+        .size-badge.unavailable {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            color: #666;
+            border-color: #444;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .size-badge.unavailable::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10%;
+            width: 120%;
+            height: 2px;
+            background: #ff4444;
+            transform: translateY(-50%) rotate(-15deg);
+            box-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+        }
+
+        .size-badge.unavailable:hover {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            color: #666;
+            transform: none;
         }
 
         .material-badge {
@@ -694,7 +723,7 @@
                         <div class="product-detail-item">
                             <strong>Tallas:</strong>
                             <div class="sizes-container">
-                                <span class="size-badge">S</span>
+                                <span class="size-badge unavailable">S</span>
                                 <span class="size-badge">M</span>
                                 <span class="size-badge">L</span>
                                 <span class="size-badge">XL</span>
@@ -779,8 +808,8 @@
                             <div class="sizes-container">
                                 <span class="size-badge">S</span>
                                 <span class="size-badge">M</span>
-                                <span class="size-badge">L</span>
-                                <span class="size-badge">XL</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
                             </div>
                         </div>
                     </div>
