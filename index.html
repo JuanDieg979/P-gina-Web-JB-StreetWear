@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JB StreetWear - Moda Urbana Auténtica</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Fuente que coincide con el estilo del logo (bold, serif, impactante) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700,900&display=swap" rel="stylesheet">
     <style>
-        /* ===========================
-           ESTILOS GENERALES
-           =========================== */
         * {
             margin: 0;
             padding: 0;
@@ -20,13 +16,10 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #d4a574; /* Color dorado del logo */
-            background-color: #0a0a0a; /* Fondo negro profundo */
+            color: #d4a574;
+            background-color: #0a0a0a;
         }
 
-        /* ===========================
-           HEADER Y NAVEGACIÓN
-           =========================== */
         header {
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: #d4a574;
@@ -48,7 +41,6 @@
             padding: 0 2rem;
         }
 
-        /* Logo con imagen */
         .logo {
             display: flex;
             align-items: center;
@@ -70,7 +62,6 @@
             text-transform: uppercase;
         }
 
-        /* Links de navegación */
         .nav-links {
             display: flex;
             list-style: none;
@@ -88,7 +79,6 @@
             position: relative;
         }
 
-        /* Efecto hover en los links */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -109,11 +99,7 @@
             text-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
         }
 
-        /* ===========================
-           HERO SECTION
-           =========================== */
         .hero {
-            /* Fondo con overlay oscuro */
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
                         radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
             height: 100vh;
@@ -127,7 +113,6 @@
             overflow: hidden;
         }
 
-        /* Efecto de patrón decorativo en el hero */
         .hero::before {
             content: '';
             position: absolute;
@@ -162,7 +147,6 @@
             color: #c4955f;
         }
 
-        /* Botón principal */
         .btn {
             display: inline-block;
             padding: 1rem 3rem;
@@ -185,9 +169,6 @@
             background: linear-gradient(135deg, #f4c794 0%, #d4a574 100%);
         }
 
-        /* ===========================
-           SECCIONES GENERALES
-           =========================== */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -207,7 +188,6 @@
             position: relative;
         }
 
-        /* Línea decorativa debajo de los títulos */
         h2::after {
             content: '';
             display: block;
@@ -217,9 +197,6 @@
             margin: 1rem auto 0;
         }
 
-        /* ===========================
-           SOBRE NOSOTROS
-           =========================== */
         #nosotros {
             background: #0f0f0f;
         }
@@ -242,7 +219,6 @@
             text-align: justify;
         }
 
-        /* Contenedor de imagen del logo */
         .about-image {
             background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
             height: 400px;
@@ -262,9 +238,6 @@
             filter: drop-shadow(0 0 20px rgba(212, 165, 116, 0.4));
         }
 
-        /* ===========================
-           CATÁLOGO
-           =========================== */
         #catalogo {
             background: #0a0a0a;
         }
@@ -276,7 +249,6 @@
             margin-top: 3rem;
         }
 
-        /* Tarjetas de producto */
         .product-card {
             background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
             border-radius: 10px;
@@ -284,6 +256,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             transition: all 0.4s;
             border: 2px solid #2a2a2a;
+            position: relative;
         }
 
         .product-card:hover {
@@ -292,7 +265,39 @@
             border-color: #d4a574;
         }
 
-        /* Imagen del producto */
+        .out-of-stock-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transform: rotate(-5deg);
+        }
+
+        .product-card.out-of-stock .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 5;
+        }
+
+        .product-card.out-of-stock {
+            opacity: 0.7;
+        }
+
         .product-image {
             height: 450px;
             background: radial-gradient(circle, #2a2a2a 0%, #1a1a1a 100%);
@@ -307,7 +312,6 @@
             overflow: hidden;
         }
 
-        /* Estilos para las imágenes reales dentro del contenedor */
         .product-image img {
             width: 100%;
             height: 100%;
@@ -316,9 +320,6 @@
             display: block;
         }
 
-        /* ===========================
-           CARRUSEL DE IMÁGENES
-           =========================== */
         .carousel {
             position: relative;
         }
@@ -369,7 +370,6 @@
             right: 10px;
         }
 
-        /* Indicadores del carrusel */
         .carousel-indicators {
             position: absolute;
             bottom: 10px;
@@ -395,7 +395,6 @@
             border-radius: 5px;
         }
 
-        /* Si la imagen está directamente en product-card (sin product-image) */
         .product-card > img {
             width: 100%;
             height: 450px;
@@ -404,7 +403,6 @@
             display: block;
         }
 
-        /* Efecto de brillo en hover */
         .product-image::before {
             content: '';
             position: absolute;
@@ -421,7 +419,6 @@
             opacity: 1;
         }
 
-        /* Información del producto */
         .product-info {
             padding: 1.5rem;
             background: #0f0f0f;
@@ -441,17 +438,160 @@
             font-size: 0.95rem;
         }
 
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 5px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .product-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #c4955f;
+        }
+
+        .product-detail-item strong {
+            color: #d4a574;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            min-width: 80px;
+        }
+
+        .sizes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .size-badge {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            color: #d4a574;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid #d4a574;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .size-badge:hover {
+            background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+            color: #0a0a0a;
+            transform: scale(1.05);
+        }
+
+        /* Talla agotada con diagonal */
+        .size-badge.unavailable {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            color: #666;
+            border-color: #444;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .size-badge.unavailable::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10%;
+            width: 120%;
+            height: 2px;
+            background: #ff4444;
+            transform: translateY(-50%) rotate(-15deg);
+            box-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+        }
+
+        .size-badge.unavailable:hover {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            color: #666;
+            transform: none;
+        }
+
+        .material-badge {
+            background: rgba(212, 165, 116, 0.1);
+            color: #d4a574;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            display: inline-block;
+        }
+
         .price {
             font-size: 1.6rem;
             color: #d4a574;
             font-weight: bold;
             font-family: 'Playfair Display', serif;
             text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+            margin-top: 1rem;
         }
 
-        /* ===========================
-           CONTACTO
-           =========================== */
+        /* PRECIO EN OFERTA */
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .price.original {
+            font-size: 1.2rem;
+            color: #666;
+            text-decoration: line-through;
+            text-shadow: none;
+            position: relative;
+        }
+
+        .price.original::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ff4444;
+            transform: translateY(-50%);
+        }
+
+        .price.sale {
+            font-size: 2rem;
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
+            }
+        }
+
+        .discount-percentage {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(255, 68, 68, 0.3);
+        }
+
         #contacto {
             background: #0f0f0f;
         }
@@ -475,7 +615,6 @@
             margin-top: 2rem;
         }
 
-        /* Items de contacto */
         .contact-item {
             background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
             padding: 1.5rem;
@@ -499,7 +638,6 @@
             letter-spacing: 1px;
         }
 
-        /* Estilos para los enlaces de contacto */
         .contact-item a {
             color: #d4a574;
             text-decoration: none;
@@ -511,9 +649,6 @@
             text-decoration: underline;
         }
 
-        /* ===========================
-           FOOTER
-           =========================== */
         footer {
             background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             color: #d4a574;
@@ -536,11 +671,7 @@
             color: #d4a574;
         }
 
-        /* ===========================
-           RESPONSIVE DESIGN
-           =========================== */
         @media (max-width: 768px) {
-            /* Navegación móvil */
             .nav-links {
                 gap: 1rem;
                 font-size: 0.9rem;
@@ -554,7 +685,6 @@
                 font-size: 1.2rem;
             }
 
-            /* Hero móvil */
             .hero-content h1 {
                 font-size: 2.5rem;
                 letter-spacing: 3px;
@@ -564,7 +694,6 @@
                 font-size: 1.1rem;
             }
 
-            /* Sobre nosotros móvil */
             .about-content {
                 grid-template-columns: 1fr;
             }
@@ -573,32 +702,32 @@
                 height: 300px;
             }
 
-            /* Títulos móviles */
             h2 {
                 font-size: 2rem;
                 letter-spacing: 2px;
             }
 
-            /* Catálogo móvil */
             .catalog-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .out-of-stock-badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+                top: 15px;
+                right: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- ===========================
-         HEADER CON NAVEGACIÓN
-         =========================== -->
     <header>
         <nav>
-            <!-- Logo con imagen y texto -->
             <div class="logo">
                 <img src="LogoJB.png" alt="JB StreetWear Logo" id="logo-img">
                 <span class="logo-text">JB StreetWear</span>
             </div>
-            <!-- Menú de navegación -->
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
@@ -608,9 +737,6 @@
         </nav>
     </header>
 
-    <!-- ===========================
-         SECCIÓN HERO (PORTADA)
-         =========================== -->
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>JB StreetWear</h1>
@@ -619,9 +745,6 @@
         </div>
     </section>
 
-    <!-- ===========================
-         QUIÉNES SOMOS
-         =========================== -->
     <section id="nosotros">
         <h2>Quiénes Somos</h2>
         <div class="about-content">
@@ -630,33 +753,49 @@
                 <p>Nos especializamos en playeras de alta calidad con diseños exclusivos que combinan comodidad, estilo y durabilidad. Cada prenda es cuidadosamente seleccionada para garantizar que nuestros clientes luzcan su mejor versión.</p>
                 <p>Creemos que la moda es una forma de expresión, y nuestra misión es brindarte las herramientas para que muestres al mundo quién eres realmente. Nuestro emblema, el doberman con cadena, representa fuerza, lealtad y actitud urbana.</p>
             </div>
-            <!-- Logo de la marca -->
             <div class="about-image">
                 <img src="LogoJB.png" alt="JB StreetWear Logo" id="about-logo">
             </div>
         </div>
     </section>
 
-    <!-- ===========================
-         CATÁLOGO DE PRODUCTOS
-         =========================== -->
     <section id="catalogo">
         <h2>Nuestro Catálogo</h2>
         <div class="catalog-grid">
-            <!-- Producto 1 -->
-            <div class="product-card">
+            <!-- Producto 1 AGOTADO -->
+            <div class="product-card out-of-stock">
+                <span class="out-of-stock-badge">AGOTADO</span>
+                
                 <div class="product-image">
                     <img src="Playera1.png" alt="Balenciaga Clásica">
                 </div>
                 <div class="product-info">
                     <h3>Balenciaga Clásica</h3>
                     <p>Estilo básico de playera color negro con detalles en colores rosas y estampado balenciaga</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
 
-            <!-- Producto 2 - CON CARRUSEL -->
+            <!-- Producto 2 - CON CARRUSEL-->
             <div class="product-card">
+                <span class="sale-badge">¡OFERTA!</span>
                 <div class="product-image carousel" data-index="0">
                     <button class="carousel-btn prev" aria-label="Imagen anterior">‹</button>
                     
@@ -674,8 +813,29 @@
                 </div>
                 <div class="product-info">
                     <h3>Off-White Simpsons</h3>
-                    <p>Estilo Urbano con detalles en colores rosados y azules estampado Off-White estampado por la parte delantera y espalda, 100% Algodón.</p>
-                    <div class="price">$199.99 MXN</div>
+                    <p>Estilo Urbano con detalles en colores rosados y azules estampado Off-White estampado por la parte delantera y espalda.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <div class="price original">$199.99 MXN</div>
+                        <div class="price sale">$149.99 MXN</div>
+                        <span class="discount-percentage">-25%</span>
+                    </div>
                 </div>
             </div>
 
@@ -698,10 +858,27 @@
                 </div>
                 <div class="product-info">
                     <h3>Anti Social Club</h3>
-                    <p>Estilo urbano con detalles en colores blanco y rosas rojas, estampado por la parte del frente y espalda de la playera, playera 100% algodón.</p>
+                    <p>Estilo urbano con detalles en colores blanco y rosas rojas, estampado por la parte del frente y espalda de la playera.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
-            </div>        
+            </div>
 
             <!-- Producto 4 -->
             <div class="product-card">
@@ -710,7 +887,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Amiri Los Angeles</h3>
-                    <p>Estilo básico con detalles en colores blanco y estampado solamente en la parte del frente playera 100% algodón.</p>
+                    <p>Estilo básico con detalles en colores blanco y estampado solamente en la parte del frente.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -722,7 +916,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Off-White™</h3>
-                    <p>Estilo básico con detalles en colores blanco y estampado solamente en la parte del frente playera 100% Algodón.</p>
+                    <p>Estilo básico con detalles en colores blanco y estampado solamente en la parte del frente.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -734,7 +945,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Nike básica Goku</h3>
-                    <p>Estilo básica en color negro con detalles en colores amarillos y estampado que simula bordado, playera 100% Algodón.</p>
+                    <p>Estilo básica en color negro con detalles en colores amarillos y estampado que simula bordado.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -746,7 +974,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Nike básica Freezer</h3>
-                    <p>Estilo básico en color negro, con detalles en colores blanco y morado, estampado solo en la parte de enfrente playera 100% Algodón.</p>
+                    <p>Estilo básico en color negro, con detalles en colores blanco y morado, estampado solo en la parte de enfrente.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -758,7 +1003,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Nike básica Rick</h3>
-                    <p>Estilo básico en color negro, con detalles en colores azules, estampado solo enfrente, playera 100% algodón.</p>
+                    <p>Estilo básico en color negro, con detalles en colores azules, estampado solo enfrente.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -770,7 +1032,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Nike Pantera Rosa básica</h3>
-                    <p>Estilo básico en color negro con detalles en color rosa y estampado solamente por la parte del frente playera 100% Algodón.</p>
+                    <p>Estilo básico en color negro con detalles en color rosa y estampado solamente por la parte del frente.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -794,7 +1073,24 @@
                 </div>
                 <div class="product-info">
                     <h3>Off-White Bart</h3>
-                    <p>Estilo urbano con detalles en colores amarillos, estampado por el frente y parte de espalda, playera 100% algodón.</p>
+                    <p>Estilo urbano con detalles en colores amarillos, estampado por el frente y parte de espalda.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -819,6 +1115,23 @@
                 <div class="product-info">
                     <h3>Off-White Tom & Jerry</h3>
                     <p>Playera negra 100% algodón en color negro con estampados al frente y parte de atrás de Tom & Jerry</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
@@ -843,15 +1156,30 @@
                 <div class="product-info">
                     <h3>Playera Amiri Ángel</h3>
                     <p>Estilo urbano con detalles en colores blanco y estampado de Angel.</p>
+                    
+                    <div class="product-details">
+                        <div class="product-detail-item">
+                            <strong>Material:</strong>
+                            <span class="material-badge">100% Algodón</span>
+                        </div>
+                        <div class="product-detail-item">
+                            <strong>Tallas:</strong>
+                            <div class="sizes-container">
+                                <span class="size-badge unavailable">S</span>
+                                <span class="size-badge unavailable">M</span>
+                                <span class="size-badge unavailable">L</span>
+                                <span class="size-badge unavailable">XL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="price">$199.99 MXN</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===========================
-         CONTACTO
-         =========================== -->
+    <!-- SECCIÓN DE CONTACTO -->
     <section id="contacto">
         <h2>Contacto</h2>
         <div class="contact-content">
@@ -859,7 +1187,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <strong>WhatsApp:</strong> 
-                    <a href="https://wa.me/5213411463794" target="_blank">
+                    <a href="https://wa.me/5213411463794" target="_blank" rel="noopener noreferrer">
                         +52 341 146 3794
                     </a>
                 </div>
@@ -871,33 +1199,23 @@
                 </div>
                 <div class="contact-item">
                     <strong>Instagram:</strong> 
-                    <a href="https://www.instagram.com/jbstreetwear.mx" target="_blank">
+                    <a href="https://www.instagram.com/jbstreetwear.mx" target="_blank" rel="noopener noreferrer">
                         @jbstreetwear.mx
                     </a>
                 </div>
                 <div class="contact-item">
-                    <strong>Ubicación:</strong> Ciudad Guzmán
+                    <strong>Ubicación:</strong> Ciudad Guzmán, Jalisco
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===========================
-         FOOTER
-         =========================== -->
     <footer>
         <p>&copy; 2026 JB StreetWear. Todos los derechos reservados.</p>
         <p>Hecho con pasión por la moda urbana</p>
     </footer>
 
-    <!-- ===========================
-         JAVASCRIPT
-         =========================== -->
     <script>
-        /**
-         * SMOOTH SCROLL
-         * Desplazamiento suave al hacer clic en los enlaces de navegación
-         */
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -911,10 +1229,6 @@
             });
         });
 
-        /**
-         * EFECTO DE APARICIÓN AL HACER SCROLL
-         * Las tarjetas de producto aparecen con animación al hacer scroll
-         */
         function handleScrollAnimation() {
             const cards = document.querySelectorAll('.product-card');
             
@@ -938,19 +1252,11 @@
             cards.forEach(card => observer.observe(card));
         }
 
-        /**
-         * INICIALIZACIÓN
-         * Se ejecuta cuando la página termina de cargar
-         */
         window.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
             initCarousels();
         });
 
-        /**
-         * CARRUSEL DE IMÁGENES
-         * Función para inicializar todos los carruseles
-         */
         function initCarousels() {
             const carousels = document.querySelectorAll('.carousel');
             
@@ -963,13 +1269,11 @@
                 let currentIndex = 0;
 
                 function updateCarousel() {
-                    // Mover las imágenes
                     const offset = -currentIndex * 100;
                     images.forEach(img => {
                         img.style.transform = `translateX(${offset}%)`;
                     });
 
-                    // Actualizar indicadores
                     indicators.forEach((indicator, index) => {
                         if (index === currentIndex) {
                             indicator.classList.add('active');
@@ -979,33 +1283,24 @@
                     });
                 }
 
-                // Botón anterior
                 prevBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
                     updateCarousel();
                 });
 
-                // Botón siguiente
                 nextBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
                     updateCarousel();
                 });
 
-                // Click en indicadores
                 indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', () => {
                         currentIndex = index;
                         updateCarousel();
                     });
                 });
-
-                // Auto-play (opcional - descomenta si quieres que cambie automáticamente)
-                //setInterval(() => {
-                //    currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
-                //    updateCarousel();
-                //}, 3000); // Cambia cada 3 segundos
             });
         }
     </script>
