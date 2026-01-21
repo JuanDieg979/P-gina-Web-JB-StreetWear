@@ -283,6 +283,38 @@
             transform: rotate(-5deg);
         }
 
+        .offer-badge {
+            /* POSICIONAMIENTO */
+            position: absolute;           /* Posición absoluta dentro del product-card */
+            top: 20px;                   /* 20 píxeles desde arriba */
+            right: 20px;                 /* 20 píxeles desde la derecha */
+            z-index: 10;                 /* Aparece encima de otros elementos */
+    
+            /* COLOR Y FONDO */
+            background: linear-gradient(135deg, #00dd55 0%, #00bb33 100%);
+            /* Gradiente diagonal de verde claro a verde oscuro */
+            color: #fff;                 /* Texto blanco */
+    
+            /* TAMAÑO Y ESPACIADO */
+            padding: 0.5rem 1.2rem;      /* 0.5rem arriba/abajo, 1.2rem izq/der */
+    
+            /* BORDES */
+            border-radius: 5px;          /* Esquinas redondeadas */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            /* Borde blanco semi-transparente */
+    
+            /* TIPOGRAFÍA */
+            font-family: 'Bebas Neue', sans-serif;  /* Fuente moderna */
+            font-size: 1rem;             /* Tamaño de texto estándar */
+            letter-spacing: 2px;         /* Espacio entre letras */
+            font-weight: bold;           /* Texto en negrita */
+    
+            /* EFECTOS VISUALES */
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4);
+            /* Sombra roja con difuminado */
+            transform: rotate(-5deg);    /* Rotación de -5 grados */
+        }
+
         .product-card.out-of-stock .product-image::after {
             content: '';
             position: absolute;
@@ -719,7 +751,7 @@
                 right: 15px;
             }
 
-            .offer {
+            .offer-badge {
                 font-size: 0.9rem;
                 padding: 0.4rem 1rem;
                 top: 15px;
@@ -802,7 +834,7 @@
 
             <!-- Producto 2 - CON CARRUSEL-->
             <div class="product-card">
-                <span class="offer">¡OFERTA!</span>
+                <span class="sale-badge">¡OFERTA!</span>
                 <div class="product-image carousel" data-index="0">
                     <button class="carousel-btn prev" aria-label="Imagen anterior">‹</button>
                     
@@ -1005,6 +1037,7 @@
 
             <!-- Producto 8 -->
             <div class="product-card">
+                <span class="offer-badge">¡OFERTA!</span>
                 <div class="product-image">
                     <img src="Playera8.png" alt="Nike básica Rick">
                 </div>
